@@ -9,12 +9,47 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {}
+    "hero": {
+      "type": "homepage-hero",
+      "settings": {
+        "eyebrow": "Handcrafted in Vietnam",
+        "heading": "Crafted with intention.\nBuilt for the obsessed.",
+        "subheading": "Custom keycaps, 3D-printed figures, and resin lamps — each piece made to order, made to last.",
+        "cta_label": "Shop the collection",
+        "cta_url": "/collections",
+        "background_color": "#FAFAF8"
+      }
+    },
+    "collections": {
+      "type": "featured-collections",
+      "settings": {
+        "heading": "Our collections",
+        "card_1_title": "Custom Keycaps",
+        "card_1_description": "Artisan-crafted keycaps in resin, sculpted and painted to order.",
+        "card_1_url": "/collections/custom-keycaps",
+        "card_2_title": "Custom 3D Figures",
+        "card_2_description": "Personalised 3D-printed figurines — characters, portraits, miniatures.",
+        "card_2_url": "/collections/custom-3d-figures",
+        "card_3_title": "Resin & Epoxy Lamps",
+        "card_3_description": "Handpoured resin lamps with botanicals, pigments, and LED lighting.",
+        "card_3_url": "/collections/resin-epoxy-lamps"
+      }
+    },
+    "about": {
+      "type": "about-teaser",
+      "settings": {
+        "background_color": "#F0EDE8",
+        "eyebrow": "About the craft",
+        "heading": "Made slowly. Made well.",
+        "body": "Every piece in our shop is made by hand — poured, printed, painted, and finished with care. We started Keynerd Studio because we believe the things you interact with every day should feel special.\n\nBased in Vietnam, we ship worldwide.",
+        "cta_label": "Our story",
+        "cta_url": "/pages/about"
+      }
     }
   },
   "order": [
-    "main"
+    "hero",
+    "collections",
+    "about"
   ]
 }
