@@ -1,0 +1,163 @@
+<div class="about-teaser full-width" style="background-color: {{ section.settings.background_color }};">
+  <div class="about-teaser__inner">
+    <div class="about-teaser__text">
+      {% if section.settings.eyebrow != blank %}
+        <p class="about-teaser__eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      <h2 class="about-teaser__heading">{{ section.settings.heading }}</h2>
+      <div class="about-teaser__body">{{ section.settings.body | newline_to_br }}</div>
+      {% if section.settings.cta_label != blank and section.settings.cta_url != blank %}
+        <a class="about-teaser__cta" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
+      {% endif %}
+    </div>
+
+    <div class="about-teaser__media">
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 800 | image_tag: class: 'about-teaser__img', loading: 'lazy' }}
+      {% else %}
+        <div class="about-teaser__img-placeholder">
+          <span>Image coming soon</span>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .about-teaser {
+    padding: 80px var(--page-margin);
+  }
+
+  .about-teaser__inner {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .about-teaser__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .about-teaser__eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .about-teaser__heading {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    color: var(--color-foreground);
+    margin-bottom: 1.25rem;
+  }
+
+  .about-teaser__body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-foreground);
+    opacity: 0.8;
+    margin-bottom: 1.75rem;
+  }
+
+  .about-teaser__cta {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: var(--style-border-radius-inputs);
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .about-teaser__cta:hover {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .about-teaser__media {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .about-teaser__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .about-teaser__img-placeholder {
+    aspect-ratio: 4 / 3;
+    background-color: #EAE5DC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--color-foreground);
+    opacity: 0.5;
+    font-size: 0.9rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "About Teaser",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#F0EDE8"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "About the craft"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Made slowly. Made well."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body text",
+      "default": "Every piece in our shop is made by hand — poured, printed, painted, and finished with care. We started Keynerd Studio because we believe the things you interact with every day should feel special.\n\nBased in Vietnam, we ship worldwide."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label",
+      "default": "Our story"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Teaser"
+    }
+  ]
+}
+{% endschema %}
