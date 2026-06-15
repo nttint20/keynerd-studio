@@ -59,14 +59,20 @@
       {
         "type": "color",
         "id": "background_color",
-        "default": "#FFFFFF",
+        "default": "#FAFAF8",
         "label": "t:labels.background"
       },
       {
         "type": "color",
         "id": "foreground_color",
-        "default": "#333333",
+        "default": "#2B2B2B",
         "label": "t:labels.foreground"
+      },
+      {
+        "type": "color",
+        "id": "accent_color",
+        "default": "#D8A24A",
+        "label": "Accent color"
       },
       {
         "type": "range",
